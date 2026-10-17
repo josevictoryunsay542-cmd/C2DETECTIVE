@@ -1,0 +1,33 @@
+
+.morse-puzzle {
+    background: #171717;
+    color: #e6e0d5;
+    border: 1px solid #526b87;
+    border-radius: 8px;
+    padding: 20px;
+    font-family: Georgia, "Times New Roman", serif;
+    text-align: center;
+}
+
+.morse-puzzle h3 {
+    color: #a9c9ed;
+}
+
+.morse-puzzle button {
+    background: #26384d;
+    color: #ffffff;
+    border: 1px solid #718eae;
+    border-radius: 5px;
+    padding: 10px 16px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.morse-puzzle button:hover {
+    background: #385575;
+}
+
+#morseStatus {
+    font-size: 0.9em;
+    color: #b5c4d4;
+}
