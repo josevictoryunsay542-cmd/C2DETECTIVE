@@ -1,5 +1,7 @@
 
-const morseCode = ".. .- -- -. --- - .--.. . ..-. . -.-. -"; // Replace with your Morse code
+const morseCode = ".. .- -- -. --- - .--.. . ..-. . -.-. -";
+
+const correctPasscode = "DEFECT";
 
 const playButton = document.getElementById("playMorse");
 const stopButton = document.getElementById("stopMorse");
@@ -19,7 +21,7 @@ function stopMorse() {
         try {
             oscillator.stop();
         } catch (error) {
-            // Oscillator may have already stopped.
+            // The oscillator may already have stopped.
         }
     });
 
@@ -43,18 +45,18 @@ function playMorse() {
     }
 
     audioContext.resume().then(() => {
-        const unit = 0.12; // Duration of one Morse time unit
+        const unit = 0.12;
         const frequency = 650;
         let time = audioContext.currentTime + 0.1;
 
         status.textContent = "Playing Morse code...";
 
         const symbols = morseCode.trim().split("");
-        const endTime = time;
 
         symbols.forEach((symbol, index) => {
             if (symbol === "." || symbol === "-") {
                 const duration = symbol === "." ? unit : unit * 3;
+
                 const oscillator = audioContext.createOscillator();
                 const gain = audioContext.createGain();
 
@@ -63,7 +65,10 @@ function playMorse() {
 
                 gain.gain.setValueAtTime(0, time);
                 gain.gain.setValueAtTime(0.2, time + 0.005);
-                gain.gain.setValueAtTime(0.2, time + duration - 0.005);
+                gain.gain.setValueAtTime(
+                    0.2,
+                    time + duration - 0.005
+                );
                 gain.gain.setValueAtTime(0, time + duration);
 
                 oscillator.connect(gain);
@@ -82,7 +87,6 @@ function playMorse() {
                 time += unit * 7;
             }
 
-            // Separate consecutive signals within a letter.
             if (
                 (symbol === "." || symbol === "-") &&
                 symbols[index + 1] &&
@@ -110,3 +114,34 @@ function playMorse() {
 
 playButton.addEventListener("click", playMorse);
 stopButton.addEventListener("click", stopMorse);
+
+
+/* =================================
+   PASSCODE CHECKER
+   ================================= */
+
+const passcodeForm = document.getElementById("passcodeForm");
+const passcodeInput = document.getElementById("passcodeInput");
+const passcodeStatus = document.getElementById("passcodeStatus");
+const secretMessage = document.getElementById("secretMessage");
+
+passcodeForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const enteredPasscode = passcodeInput.value.trim();
+
+    if (
+        enteredPasscode.toUpperCase() ===
+        correctPasscode.toUpperCase()
+    ) {
+        passcodeStatus.textContent = "Passcode accepted. Document unlocked.";
+        secretMessage.hidden = false;
+        passcodeInput.disabled = true;
+        passcodeForm.querySelector("button").disabled = true;
+    } else {
+        passcodeStatus.textContent =
+            "Incorrect passcode. The document remains sealed.";
+        secretMessage.hidden = true;
+    }
+});
+
