@@ -1,26 +1,84 @@
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>C3 FUN FACT</title>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 3 — Recovered Research Note</title>
     <link rel="stylesheet" href="chapter3.css">
 </head>
-    <body>
-        
-<div class="morse-puzzle">
-    <h3>Recovered Research Note</h3>
-    <p>
-        A strange sequence of signals was found scribbled
-        beneath the researcher's notes. Can you decipher it?
-    </p>
+<body>
 
-    <button id="playMorse">▶ Play Morse Code</button>
-    <button id="stopMorse">■ Stop</button>
+    <div class="morse-puzzle">
+        <h3>Recovered Research Note</h3>
 
-    <p id="morseStatus">Audio ready.</p>
-</div>
+        <p>
+            A strange sequence of signals was found
+            scribbled beneath the researcher's notes.
+            Listen carefully and decipher the message.
+        </p>
 
-<script src="chapter3.js"></script>
+        <button id="playMorse">▶ Play Morse Code</button>
+        <button id="stopMorse">■ Stop</button>
 
-    </body>
+        <p id="morseStatus">Audio ready.</p>
 
+        <hr>
+
+        <h3>Enter the Passcode</h3>
+
+        <p>
+            The final message is hidden behind a passcode.
+            Enter the decoded word below.
+        </p>
+
+        <form id="passcodeForm">
+            <input
+                type="text"
+                id="passcodeInput"
+                placeholder="Enter passcode..."
+                autocomplete="off"
+                required
+            >
+
+            <button type="submit">Unlock Note</button>
+        </form>
+
+        <p id="passcodeStatus"></p>
+
+        <div id="secretMessage" hidden>
+            <h3>Decrypted Document</h3>
+
+            <p>
+                The term "Defect" is a general classification. There are people who have conditions wherein their ability to control mana is hindered.
+            </p>
+
+            <p>
+                Some cannot summon mana. Others can summon it but
+                cannot control its flow. There are even accounts of
+                individuals whose mana responds in ways that
+                conventional magical theory cannot explain.
+            </p>
+
+            <p>
+                [The rest of the file was redacted..]
+            </p>
+            <h> MAGICAL APPRATUSES </h>
+            <p>
+                 Magical Apparatuses are specialized tools and devices designed to channel, manipulate, store, or regulate mana. Unlike ordinary objects, these apparatuses incorporate magical components that allow them to perform functions that would otherwise require direct spellcasting.
+            </p>
+            <p>
+                Magical Apparatuses come in a wide variety of forms, ranging from everyday conveniences such as crystal telephones and mana-powered vehicles to specialized equipment used by investigators, physicians, engineers, and military personnel. Their complexity depends on their intended purpose, with simpler apparatuses requiring little mana to operate, while more advanced devices may demand precise control or substantial energy reserves.
+            </p>
+            <p>
+                Most apparatuses rely on a combination of enchanted materials, carefully constructed magical circuits, and a source of mana. Some draw energy directly from their users, while others contain stored mana within specially prepared crystals or other energy-conducting materials. More sophisticated models can even regulate their own output, allowing individuals with limited magical ability to operate devices that would otherwise be beyond their capabilities.
+            </p>
+            
+        </div>
+
+    </div>
+
+    <script src="chapter3.js"></script>
+</body>
 </html>
+
