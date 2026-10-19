@@ -1,6 +1,8 @@
 
 body {
     background-image: url("Untitled Design (1).png");
+    background-size: cover;
+    background-repeat: no-repeat;
     color: #e6e0d5;
     font-family: Georgia, "Times New Roman", serif;
     padding: 20px;
