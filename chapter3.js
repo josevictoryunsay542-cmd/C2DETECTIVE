@@ -1,7 +1,7 @@
 
-const morseCode = ".. .- -- -. --- - .--.. . ..-. . -.-. -";
+const morseCode = ".. / .- -- / -. --- - / .- / -.. . ..-. . -.-. -";
 
-const correctPasscode = "DEFECT";
+const correctPasscode = "IAMNOTADEFECT";
 
 const playButton = document.getElementById("playMorse");
 const stopButton = document.getElementById("stopMorse");
